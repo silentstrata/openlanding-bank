@@ -2,108 +2,166 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>OpenBank</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="bg-gray-200 flex items-center justify-center min-h-screen">
+<body class="bg-gray-100 text-gray-800">
 
-  <!-- Container -->
-  <div class="bg-[#f5f3ef] w-[95%] max-w-7xl rounded-xl p-8">
+  <!-- NAVBAR -->
+  <header class="sticky top-0 z-50 bg-white/70 backdrop-blur border-b">
+    <nav class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
 
-    <!-- Navbar -->
-    <nav class="flex items-center justify-between mb-12">
       <!-- Logo -->
       <div class="flex items-center gap-3">
-        <div class="bg-green-900 text-white w-10 h-10 flex items-center justify-center rounded-lg font-bold">
+        <div class="bg-green-900 text-white w-10 h-10 flex items-center justify-center rounded-xl font-bold">
           o.
         </div>
-        <h1 class="font-semibold text-lg">openBank</h1>
+        <span class="font-semibold text-lg">openBank</span>
       </div>
 
-      <!-- Links -->
-      <ul class="hidden md:flex gap-8 text-gray-700">
+      <!-- Desktop Menu -->
+      <ul class="hidden md:flex gap-8 text-sm font-medium">
+        <li class="hover:text-green-700 cursor-pointer">Features</li>
+        <li class="hover:text-green-700 cursor-pointer">Pricing</li>
+        <li class="hover:text-green-700 cursor-pointer">Use Cases</li>
+        <li class="hover:text-green-700 cursor-pointer">Blog</li>
+      </ul>
+
+      <!-- Actions -->
+      <div class="hidden md:flex items-center gap-4">
+        <button class="text-gray-600 hover:text-black">Sign In</button>
+        <button class="bg-green-900 text-white px-5 py-2 rounded-full hover:bg-green-800 transition">
+          Start Free
+        </button>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button id="menuBtn" class="md:hidden text-2xl">☰</button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden px-6 pb-4 md:hidden">
+      <ul class="flex flex-col gap-4 text-sm">
         <li>Features</li>
         <li>Pricing</li>
         <li>Use Cases</li>
         <li>Blog</li>
-        <li>How It Works</li>
+        <li class="pt-2 border-t">Sign In</li>
       </ul>
+    </div>
+  </header>
 
-      <!-- Actions -->
-      <div class="flex items-center gap-4">
-        <button class="hidden md:block text-gray-700">Sign Up</button>
-        <button class="bg-green-900 text-white px-5 py-2 rounded-full">
-          Start For Free
+  <!-- HERO -->
+  <section class="max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-12 items-center">
+
+    <!-- LEFT -->
+    <div>
+      <p class="text-green-700 font-medium mb-4">— Try for free</p>
+
+      <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-6">
+        Instant Payments <br/>
+        With Open Banking
+      </h1>
+
+      <p class="text-gray-600 text-lg mb-8">
+        Secure, fast and reliable transactions powered by modern financial APIs.
+        Move money smarter and scale your business globally.
+      </p>
+
+      <div class="flex flex-wrap items-center gap-4">
+        <button class="bg-gradient-to-r from-green-900 to-green-700 text-white px-6 py-3 rounded-full shadow hover:scale-105 transition">
+          Get Demo
+        </button>
+
+        <button class="border px-6 py-3 rounded-full hover:bg-gray-100">
+          Learn More
         </button>
       </div>
-    </nav>
 
-    <!-- Hero Section -->
-    <div class="grid md:grid-cols-2 gap-10 items-center">
-
-      <!-- Left Content -->
-      <div>
-        <p class="text-green-700 mb-4">— Try For Free</p>
-
-        <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-6">
-          Instant <br />
-          Payment With <br />
-          Open Banking
-        </h1>
-
-        <p class="text-gray-600 mb-8">
-          Our Advanced Technology And Secure Systems Provide A Safe And Reliable Way
-          To Transfer Funds, Allowing You To Improve Efficiency
-        </p>
-
-        <div class="flex items-center gap-6">
-          <button class="bg-green-900 text-white px-6 py-3 rounded-full">
-            Get Demo Account
-          </button>
-
-          <!-- Avatars -->
-          <div class="flex -space-x-3">
-            <img src="https://i.pravatar.cc/40?img=1" class="w-10 h-10 rounded-full border-2 border-white">
-            <img src="https://i.pravatar.cc/40?img=2" class="w-10 h-10 rounded-full border-2 border-white">
-            <img src="https://i.pravatar.cc/40?img=3" class="w-10 h-10 rounded-full border-2 border-white">
-          </div>
+      <!-- USERS -->
+      <div class="flex items-center gap-4 mt-8">
+        <div class="flex -space-x-3">
+          <img src="https://i.pravatar.cc/40?img=1" class="rounded-full border-2 border-white">
+          <img src="https://i.pravatar.cc/40?img=2" class="rounded-full border-2 border-white">
+          <img src="https://i.pravatar.cc/40?img=3" class="rounded-full border-2 border-white">
         </div>
+        <p class="text-sm text-gray-500">Trusted by 5,000+ users</p>
       </div>
-
-      <!-- Right Content -->
-      <div class="relative flex items-center justify-center">
-
-        <!-- Image Cards -->
-        <div class="grid gap-6">
-          <img src="https://images.unsplash.com/photo-1601597111158-2fceff292cdc"
-               class="w-52 h-52 object-cover rounded-xl shadow-md">
-
-          <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d"
-               class="w-52 h-52 object-cover rounded-xl shadow-md">
-        </div>
-
-        <!-- Success Card -->
-        <div class="absolute right-0 top-1/2 -translate-y-1/2 bg-[#e9e3d8] w-56 h-80 rounded-full flex flex-col items-center justify-center shadow-md">
-
-          <div class="bg-green-900 text-white w-12 h-12 flex items-center justify-center rounded-full mb-4">
-            ✓
-          </div>
-
-          <h3 class="font-semibold text-lg text-center mb-2">
-            Succesful Transaction
-          </h3>
-
-          <p class="text-gray-600 text-sm">
-            Date: Mar 20, 2025
-          </p>
-        </div>
-
-      </div>
-
     </div>
-  </div>
+
+    <!-- RIGHT -->
+    <div class="relative flex justify-center">
+
+      <!-- Image Stack -->
+      <div class="grid gap-6">
+        <img src="https://images.unsplash.com/photo-1601597111158-2fceff292cdc"
+             class="w-64 h-64 object-cover rounded-2xl shadow-lg">
+
+        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d"
+             class="w-64 h-64 object-cover rounded-2xl shadow-lg">
+      </div>
+
+      <!-- Floating Card -->
+      <div class="absolute right-0 top-1/2 -translate-y-1/2 bg-white/80 backdrop-blur-lg w-60 h-80 rounded-[40px] shadow-xl flex flex-col items-center justify-center text-center p-6">
+
+        <div class="bg-green-900 text-white w-14 h-14 rounded-full flex items-center justify-center text-xl mb-4">
+          ✓
+        </div>
+
+        <h3 class="font-semibold text-lg mb-2">
+          Successful Transaction
+        </h3>
+
+        <p class="text-gray-500 text-sm">
+          March 20, 2025
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="bg-white py-16">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+
+      <h2 class="text-3xl font-bold mb-10">Why Choose OpenBank</h2>
+
+      <div class="grid md:grid-cols-3 gap-8">
+
+        <div class="p-6 rounded-xl shadow hover:shadow-lg transition">
+          <h3 class="font-semibold text-lg mb-2">Secure Payments</h3>
+          <p class="text-gray-500">Bank-level encryption keeps your money safe.</p>
+        </div>
+
+        <div class="p-6 rounded-xl shadow hover:shadow-lg transition">
+          <h3 class="font-semibold text-lg mb-2">Fast Transfers</h3>
+          <p class="text-gray-500">Send and receive money instantly worldwide.</p>
+        </div>
+
+        <div class="p-6 rounded-xl shadow hover:shadow-lg transition">
+          <h3 class="font-semibold text-lg mb-2">Easy Integration</h3>
+          <p class="text-gray-500">Developer-friendly APIs for quick setup.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="text-center py-8 text-gray-500 text-sm">
+    © 2025 OpenBank. All rights reserved.
+  </footer>
+
+  <!-- SCRIPT -->
+  <script>
+    const btn = document.getElementById("menuBtn");
+    const menu = document.getElementById("mobileMenu");
+
+    btn.addEventListener("click", () => {
+      menu.classList.toggle("hidden");
+    });
+  </script>
 
 </body>
 </html>
